@@ -1,0 +1,3 @@
+#min hr day/mo mon day/wk command
+04,09,14,19,24,29,34,39,44,49,54,59 * * * * /opt/nsca/nsca_vmware.sh 5min > /opt/nsca/nsca_vmware_5min.log 2>&1
+06 01,05,09,13,17,21 * * * /opt/nsca/nsca_vmware.sh 4hrs > /opt/nsca/nsca_vmware_4hrs.log 2>&1

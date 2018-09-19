@@ -1,0 +1,46 @@
+cd  /etc/yum.repos.d  
+sed -i 's/mirrors.aliyun.com\/centos\/$releasever/vault.centos.org\/5.11/g' CentOS-Base.repo  
+sed -i 's/mirrors.aliyuncs.com\/centos\/$releasever/vault.centos.org\/5.11/g' CentOS-Base.repo
+
+
+yum install -y gcc glibc glibc-common gd gd-devel xinetd openssl-devel
+ useradd -s /sbin/nologin nagios
+mkdir /usr/local/nagios
+chown -R nagios.nagios /usr/local/nagios
+ wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.4.3.tar.gz --no-check-certificate
+tar zxvf nagios-3.4.3.tar.gz
+cd nagios
+
+./configure --prefix=/usr/local/nagios && make all && make install && make install-init && make install-commandmode && make install-config
+
+wget http://prdownloads.sourceforge.net/sourceforge/nagiosplug/nagios-plugins-1.4.16.tar.gz Ã»ÏÂµ½
+
+https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz#_ga=2.24973498.1872372689.1506051334-624060048.1506051334
+
+ tar zxvf nagios-plugins-1.4.16.tar.gz
+cd nagios-plugins-1.4.16
+ ./configure --prefix=/usr/local/nagios && make && make install
+
+
+
+wget http://archive.apache.org/dist/httpd/httpd-2.2.23.tar.gz
+
+ tar zxvf httpd-2.2.23.tar.gz
+
+ cd httpd-2.2.23
+
+ ./configure --prefix=/usr/local/apache2 &&  make && make install
+
+wget http://cn2.php.net/distributions/php-5.4.10.tar.gz
+
+ tar zxvf php-5.4.10.tar.gz
+
+ cd php-5.4.10
+
+ ./configure --prefix=/usr/local/php --with-apxs2=/usr/local/apache2/bin/apxs &&  make && make install
+
+
+
+
+
+/usr/local/apache2/bin/htpasswd -c /usr/local/nagios/etc/htpasswd david

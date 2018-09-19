@@ -1,0 +1,7 @@
+revoke dba from TYJSTAT;
+grant connect, resource to TYJSTAT;
+grant unlimited tablespace to TYJSTAT;
+
+
+
+尖括号下，oap connect slot 0 连接到交换机

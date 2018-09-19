@@ -1,0 +1,25 @@
+
+import smtplib
+import string
+HOST="smtp.qq.com"
+SUBJECT="Your mail server"
+TO="15088256320@139.com"
+FROM="24760080@qq.com"
+text="This is a mail to 139 mailbox"
+BODY=string.join((
+   "From:%s"%FROM,
+   "To:%s"%TO,
+   "Subject:%s"%SUBJECT,
+   "",
+   text
+   ),"\r\n")
+server=smtplib.SMTP(host="smtp.qq.com",port=587)
+server.ehlo()
+
+server.starttls()
+
+server.login("24760080@qq.com","dsdzmbbboyjjbjda")
+
+server.sendmail(FROM,[TO],BODY)
+
+server.quit()

@@ -1,0 +1,19 @@
+{
+  "name": "pwdgen",
+  "version": "1.0.1",
+  "description": "Random password generator.",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify pwdgen.js | uglify -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "willizm",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "browserify": "^11.2.0",
+    "str1n9": "^1.0.4",
+    "uglifyify": "^3.0.1",
+    "vue": "^1.0.0-beta.2"
+  }
+}

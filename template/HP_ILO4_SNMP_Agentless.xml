@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.2</version>
+    <date>2017-05-18T12:32:04Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>HP Server Health Template</template>
+            <name>HP Server Health Template</name>
+            <description/>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>FAN Health</name>
+                </application>
+                <application>
+                    <name>Memory Health</name>
+                </application>
+                <application>
+                    <name>Power Health</name>
+                </application>
+                <application>
+                    <name>Storage Health</name>
+                </application>
+                <application>
+                    <name>System Health</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Global System Health</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.1.3.0</snmp_oid>
+                    <key>cpqHeMibCondition</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Memory Status</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.2.14.4.0</snmp_oid>
+                    <key>cpqHeResilientMemCondition</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory Health</name>
+                        </application>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>HP Insight System Status</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Total Memory Size</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.2.14.8</snmp_oid>
+                    <key>cpqHeResilientMemTotalMemSize</key>
+                    <delay>21600</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>MB</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory Health</name>
+                        </application>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Advanced Memory Protection type</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.2.14.1.0</snmp_oid>
+                    <key>cpqHeResilientMemTypeActive</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory Health</name>
+                        </application>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>HP Memory Protection Types</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Overall Thermal Status</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.2.6.1.0</snmp_oid>
+                    <key>cpqHeThermalCondition</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>FAN Health</name>
+                        </application>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>HP Insight System Status</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Fan Status</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>1.3.6.1.4.1.232.6.2.6.4.0</snmp_oid>
+                    <key>cpqHeThermalSystemFanStatus</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>FAN Health</name>
+                        </application>
+                        <application>
+                            <name>System Health</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>HP Insight System Status</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>RAID Controller</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.232.3.2.2.1.1.1]</snmp_oid>
+                    <key>cpqDaCntlrIndex-[{#SNMPVALUE}]</key>
+                    <delay>86400</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>RAID Controller $1 Status</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.3.2.2.1.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqDaCntlrCondition[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Storage Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>HP Insight System Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaCntlrCondition[{#SNMPVALUE}].last()}=1</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaCntlrCondition[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>RAID Controller [{#SNMPVALUE}] need  check (Other)</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaCntlrCondition[{#SNMPVALUE}].last()}&gt;2</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaCntlrCondition[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>RAID Controller  [{#SNMPVALUE}] not OK</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>HDD Bay</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.232.3.2.5.1.1.5]</snmp_oid>
+                    <key>cpqDaPhyDrvBay-[{#SNMPVALUE}]</key>
+                    <delay>86400</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>HDD in bay $1 Serial</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.232.3.2.5.1.1.51.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqDaPhyDrvSerialNum[{#SNMPVALUE}]</key>
+                            <delay>21600</delay>
+                            <history>90</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Storage Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>HDD in bay $1 Status</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.232.3.2.5.1.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqDaPhyDrvStatus[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Storage Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>HP Physical Drive Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=1</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>Check HDD in bay [{#SNMPVALUE}] status (Other)</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}&gt;4</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>HDD in bay [{#SNMPVALUE}] Erasing</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=3</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>HDD in bay [{#SNMPVALUE}] Failure</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaPhyDrvSerialNum[{#SNMPVALUE}].diff()}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>HDD in bay [{#SNMPVALUE}] has been replaced</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=4</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqDaPhyDrvStatus[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>HDD in bay [{#SNMPVALUE}] has predictive failure</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Power Supply Bay</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.232.6.2.9.3.1.2]</snmp_oid>
+                    <key>cpqHeFltTolPowerSupplyBay-[{#SNMPVALUE}]</key>
+                    <delay>86400</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port>{$SNMP_PORT}</port>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Power Supply $1 Max Watts</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.8.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyCapacityMaximum[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Capacity Usage</name>
+                            <type>15</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>cpqHeFltTolPowerSupplyCapacityUsedPerc[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params>last(cpqHeFltTolPowerSupplyCapacityUsed[{#SNMPVALUE}])/(last(cpqHeFltTolPowerSupplyCapacityMaximum[{#SNMPVALUE}])/100)</params>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Used Watts</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyCapacityUsed[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Status</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyCondition[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>HP Insight System Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Voltage</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Presence</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyPresent[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>HP Power Supply Presence</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Power Supply $1 Redundancy</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.232.6.2.9.3.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>cpqHeFltTolPowerSupplyRedundant[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port>{$SNMP_PORT}</port>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power Health</name>
+                                </application>
+                                <application>
+                                    <name>System Health</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>HP Power Supply Redundancy</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqHeFltTolPowerSupplyRedundant[{#SNMPVALUE}].last()}=2</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqHeFltTolPowerSupplyRedundant[{#SNMPVALUE}].last()}=3</recovery_expression>
+                            <name>Power Supply [{#SNMPVALUE}] has no redundancy.</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>1</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&gt;240</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&gt;220 and {HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&lt;240</recovery_expression>
+                            <name>Power Supply [{#SNMPVALUE}] high input voltage</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqHeFltTolPowerSupplyCapacityUsedPerc[{#SNMPVALUE}].avg(15m)}&gt;75</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqHeFltTolPowerSupplyCapacityUsedPerc[{#SNMPVALUE}].avg(15m)}&lt;75</recovery_expression>
+                            <name>Power Supply [{#SNMPVALUE}] High Usage</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqHeFltTolPowerSupplyCondition[{#SNMPVALUE}].last()}&gt;2</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqHeFltTolPowerSupplyCondition[{#SNMPVALUE}].last()}=2</recovery_expression>
+                            <name>Power Supply [{#SNMPVALUE}] is not OK</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&lt;220</expression>
+                            <recovery_mode>1</recovery_mode>
+                            <recovery_expression>{HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&gt;220 and {HP Server Health Template:cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}].last()}&lt;240</recovery_expression>
+                            <name>Power Supply [{#SNMPVALUE}] low input voltage</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>{HOST.NAME} is unavailable by ICMP</name>
+                                    <expression>{HP Server Health Template:icmpping.max(#3)}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Power Supply {#SNMPVALUE} input voltage</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>200.0000</yaxismin>
+                            <yaxismax>260.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>1</ymin_type_1>
+                            <ymax_type_1>1</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>5</drawtype>
+                                    <color>CC0000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>HP Server Health Template</host>
+                                        <key>cpqHeFltTolPowerSupplyMainVoltage[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>Power Supply {#SNMPVALUE} Usage Level</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>1</ymin_type_1>
+                            <ymax_type_1>1</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>5</drawtype>
+                                    <color>00BB00</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>HP Server Health Template</host>
+                                        <key>cpqHeFltTolPowerSupplyCapacityUsedPerc[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                    <host_prototypes/>
+                </discovery_rule>
+            </discovery_rules>
+            <httptests/>
+            <macros/>
+            <templates>
+                <template>
+                    <name>Template ICMP Ping</name>
+                </template>
+            </templates>
+            <screens/>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>HP Insight System Status</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Other</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>OK</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Degraded</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Failure</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>HP Memory Protection Types</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Other</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>None</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Online Spare</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Mirrored</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Advanced ECC</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>Mirrored Single Board</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Mirrored Dual Board</newvalue>
+                </mapping>
+                <mapping>
+                    <value>8</value>
+                    <newvalue>XOR</newvalue>
+                </mapping>
+                <mapping>
+                    <value>9</value>
+                    <newvalue>LockStep</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>HP Physical Drive Status</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Other</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>OK</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Failed</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Predictive Failure</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Erasing</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>Erase Done</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Erase Pending</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>HP Power Supply Presence</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Other</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Absent</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Present</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>HP Power Supply Redundancy</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Other</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Not Redundant</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Redundant</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>

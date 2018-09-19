@@ -1,0 +1,60 @@
+
+
+S4624  windows2008r2 日志
+S682
+
+在安装zabbix服务器的时候需要带参数--with-openipmi
+./configure --prefix=/usr/local/zabbix --enable-server --enable-agent --with-net-snmp --with-libcurl --enable-proxy --with-mysql=/usr/bin/mysql_config  --with-openipmi
+
+ ps -ef|grep zabbix|grep -v grep|cut -c 9-15|xargs kill -9
+
+select * from sys.configurations where name like 'max server memory%'
+
+
+
+
+
+rmfilt -v 4 all
+genfilt -v 4 -a P -s 10.200.198.0 -m 255.255.255.0 -d 10.200.197.250 -M 255.255.255.255 -g N -c tcp -o gt -p 1023 -O eq -P 1521 -r L -w I -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.198.0 -M 255.255.255.0 -g N -c tcp -o eq -p 1521 -O gt -P 1023 -r L -w O -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.0 -m 255.255.255.0 -d 10.200.197.250 -M 255.255.255.255 -g N -c tcp -o gt -p 1023 -O eq -P 1521 -r L -w I -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.197.0 -M 255.255.255.0 -g N -c tcp -o eq -p 1521 -O gt -P 1023 -r L -w O -l N -f Y -i all
+
+
+
+
+genfilt -v 4 -a P -s 10.200.5.2 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c tcp -o gt -p 1023 -O eq -P 22 -r L -w I -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.5.2 -M 255.255.255.255 -g N -c tcp -o eq -p 22 -O gt -P 1023 -r L -w O -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.5.226 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c tcp -o gt -p 1023 -O eq -P 22 -r L -w I -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.5.226 -M 255.255.255.255 -g N -c tcp -o eq -p 22 -O gt -P 1023 -r L -w O -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.198.248 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c all  -r L -l N -f Y -i all
+
+genfilt -v 4 -a P -s 10.200.198.106 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c tcp -o gt -p 1023 -O eq -P 5666 -r L -w I -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.198.106 -M 255.255.255.255 -g N -c tcp -o eq -p 5666 -O gt -P 1023 -r L -w O -l N -f Y -i all
+
+genfilt -v 4 -a P -s 10.200.198.4 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c all  -r L -l N -f Y -i all
+
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.198.4 -M 255.255.255.255 -g N -c all  -r L -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.197.249 -M 255.255.255.255 -g N -c all  -r L -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 10.200.197.248 -M 255.255.255.255 -g N -c all  -r L -l N -f Y -i all
+
+genfilt -v 4 -a P -s 10.200.197.250 -m 255.255.255.255 -d 197.220.64.18 -M 255.255.255.255 -g N -c udp -o gt -p 1023 -O eq -P 514 -r L -w O -l N -f Y -i all
+genfilt -v 4 -a P -s 197.220.64.18 -m 255.255.255.255 -d 10.200.197.250 -M 255.255.255.255 -g N -c udp -o eq -p 514 -O gt -P 1023 -r L -w I -l N -f Y -i all
+
+genfilt -v 4 -a P -s 0.0.0.0 -m 0.0.0.0 -d 10.200.198.250 -M 255.255.255.255 -g N -c icmp  -r L -l N -f Y -i all
+genfilt -v 4 -a P -s 10.200.198.250 -m 255.255.255.255 -d 0.0.0.0 -M 0.0.0.0 -g N -c icmp  -r L -l N -f Y -i all
+
+mkfilt -u
+
+iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT               
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT    
+iptables -A OUTPUT -j ACCEPT 
+iptables -A INPUT  -s 10.200.197.250/32 -j ACCEPT
+iptables -A INPUT  -p tcp -s 10.200.198.106/32 --dport 5666 -j ACCEPT 
+iptables -A INPUT  -p tcp -s 10.200.198.0/24 --dport 1521 -j ACCEPT       
+iptables -A INPUT -p tcp -s 10.200.5.2/32  --dport 22 -j ACCEPT   
+iptables -A INPUT -p tcp  -s 10.200.5.226/32 --dport 22 -j ACCEPT    
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A INPUT -j REJECT       
+iptables -A FORWARD -j REJECT    
+

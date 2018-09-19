@@ -1,0 +1,340 @@
+dsdzmbbboyjjbjda
+
+
+ 1 USE AdventureWorks2008R2;
+ 2 GO
+ 3 exec sp_MSForEachTable 
+ 4 @precommand=N'create table ##(
+ 5 表名 sysname,
+ 6 记录数 int,
+ 7 保留空间 Nvarchar(10),
+ 8 使用空间 varchar(10),
+ 9 索引使用空间 varchar(10),
+10 未用空间 varchar(10))',
+11 @command1=N'insert ## exec sp_spaceused ''?''',
+12 @postcommand=N'select * from ## order by 记录数 '
+13 
+14 DROP TABLE ##
+
+
+
+1 USE AdventureWorks2008R2;
+2 go
+3 CREATE TABLE #temp (TableName VARCHAR (255), RowCnt INT)
+4 EXEC sp_MSforeachtable 'INSERT INTO #temp SELECT ''?'', COUNT(*) FROM ?'
+5 SELECT TableName, RowCnt FROM #temp ORDER BY RowCnt
+6 
+7 DROP TABLE #temp;
+
+
+#!/usr/bin/python  
+#coding=utf-8  
+#-------------------------------------------------------------------------------  
+# Name: datamapper.py  
+# Purpose: using pyodbc library to operate database  
+#  
+# Author: huamin.zhang  
+#  
+# Created: 20/04/2013  
+#-------------------------------------------------------------------------------  
+  
+import pyodbc  
+import datetime  
+import time
+  
+  
+class ODBC_MS:  
+    ''''' 对pyodbc库的操作进行简单封装 
+    pyodbc库的下载地址:http://code.google.com/p/pyodbc/downloads/list 
+    使用该库时，需要在Sql Server Configuration Manager里面将TCP/IP协议开启 
+    此类完成对数据库DB的连接/查询/执行操作 
+    正确的连接方式如下: 
+    cnxn = pyodbc.connect('DRIVER={SQL SERVER};SERVER=ZHANGHUAMIN\MSSQLSERVER_ZHM;DATABASE=AdventureWorks2008;UID=sa;PWD=wa1234')  
+    cnxn = pyodbc.connect(DRIVER='{SQL SERVER}',SERVER=r'ZHANGHUAMIN\MSSQLSERVER_ZHM',DATABASE='AdventureWorks2008',UID='sa',PWD='wa1234',charset="utf-8")     
+    '''  
+      
+    def __init__(self, DRIVER,SERVER, DATABASE, UID, PWD):  
+        ''''' initialization '''  
+          
+        self.DRIVER = DRIVER  
+        self.SERVER = SERVER  
+        self.DATABASE = DATABASE  
+        self.UID = UID  
+        self.PWD = PWD  
+          
+    def __GetConnect(self):  
+        ''''' Connect to the DB '''  
+          
+        if not self.DATABASE:  
+            raise(NameError,"no setting db info")  
+  
+        self.conn = pyodbc.connect(DRIVER=self.DRIVER, SERVER=self.SERVER, DATABASE=self.DATABASE, UID=self.UID, PWD=self.PWD, charset="UTF-8")  
+        #self.conn = pyodbc.connect(DRIVER=self.DRIVER, SERVER=self.SERVER, DATABASE=self.DATABASE, UID=self.UID, PWD=self.PWD)  
+        cur = self.conn.cursor()  
+        if not cur:  
+            raise(NameError,"connected failed!")  
+        else:  
+            return cur  
+          
+    def ExecQuery(self, sql):  
+        ''''' Perform one Sql statement '''  
+          
+        cur = self.__GetConnect() #建立链接并创建数据库操作指针  
+        cur.execute(sql)#通过指针来执行sql指令  
+        ret = cur.fetchall()#通过指针来获取sql指令响应数据  
+        cur.close()#游标指标关闭  
+        self.conn.close()#关闭数据库连接  
+          
+        return ret   
+      
+      
+    def ExecNoQuery(self,sql):  
+        ''''' Person one Sql statement like write data, or create table, database and so on'''  
+          
+        cur = self.__GetConnect()  
+        cur.execute(sql)  
+        self.conn.commit()#连接句柄来提交  
+        cur.close()  
+        self.conn.close()     
+  
+  
+      
+def main():  
+    ms = ODBC_MS('{SQL SERVER}', r'ZHANGHUAMIN\MSSQLSERVER_ZHM', 'zhm_db', 'sa',  'wa1234')#zhm_db数据库是在sql server 终端里先创建好的  
+   
+    #ms.ExecNoQuery("drop table Customers_test")    
+    sql = '''''CREATE TABLE Customers_test 
+    ( 
+        CustomerNo     int             IDENTITY     NOT NULL, 
+        CustomerName   varchar(30)                  NOT NULL, 
+        Address1       nvarchar(30)                 NOT NULL , 
+        Address2       nvarchar(30)                 NOT NULL, 
+        City           nvarchar(20)                 NOT NULL, 
+        State          nchar(20)                    NOT NULL, 
+        Zip            varchar(10)                  NOT NULL, 
+        Contact        varchar(25)                  NOT NULL, 
+        Phone          char(15)                     NOT NULL, 
+        FedIDNo        varchar(9)                   NOT NULL, 
+        DateInSystem   smalldatetime                NOT NULL 
+    );'''  
+    ms.ExecNoQuery(sql)    
+  
+      
+    #注意:在进行插入操作时,自增长度不能够写入  
+    sql = u'''''insert into Customers_test 
+    ( 
+        CustomerName, 
+        Address1, 
+        Address2, 
+        City, 
+        State, 
+        Zip, 
+        Contact, 
+        Phone, 
+        FedIDNo, 
+        DateInSystem 
+    ) 
+    VALUES 
+    ( 
+        
+        'zhm', '北京市朝阳区', '北京市朝阳区', '北京', '哈哈','3625514', '18001226509', '010-88765879', '21', '2012-09-09' 
+    ); 
+     
+    '''  
+    ms.ExecNoQuery(sql)   
+      
+if __name__ == '__main__':  
+    main()  
+
+
+
+设置死循环，四个小时所有项都没有更新时，中断循环，发送邮件
+
+
+
+cnxn1 = pyodbc.connect('DRIVER={SQL Server};SERVER=WINXP-PRO-VM;DATABASE=webapp;UID=sa;PWD=abc123')
+
+cursor1 = cnxn1.cursor()
+cursor1.execute("select * from hisdata")
+#<pyodbc.Cursor object at 0x027C02C0>
+ roww=cursor1.fetchone()
+
+cursor1.execute("select * from hisdata")
+#<pyodbc.Cursor object at 0x027C02C0>
+ rows=cursor1.fetchone()
+
+if datetime.datetime.now()>roww[2]+datetime.timedelta(0,14400,0) and datetime.datetime.now()>rows[2]+datetime.timedelta(0,14400,0):
+    #alarm.system has been down
+    #
+    #
+    #
+    #
+    #
+else:
+    #
+
+ row
+(1, 'admin', 'admin', 'admin', 'admin', 'admin')
+
+>>> row=cursor.fetchone()
+>>> row
+(1, Decimal('21'), datetime.datetime(2016, 12, 4, 14, 0))
+>>> row[2]
+datetime.datetime(2016, 12, 4, 14, 0)
+
+>>> datetime.datetime.now()>row[2]+datetime.timedelta(0,1500,0)+datetime.timedelta(6,28800,0)
+True
+>>> 
+
+
+
+
+
+列出当前服务器建立的连接数
+netstat --inet | wc -l
+ 
+列出有哪些主机正在访问你的服务器
+netstat --inet | grep -e 'tcp' -e 'udp' | sort | uniq | awk '{print $5}' | awk -F: '{ print $1 }'
+ 
+列出服务器与每个主机建立的连接数
+netstat --inet | grep -e 'tcp' -e 'udp' | sort | uniq | awk '{print $5}' | awk -F: '{ print $1 }' > stat.txt
+for x in `netstat --inet | grep -e 'tcp' -e 'udp' | sort | uniq | awk '{print $5}' | awk -F: '{ print $1 }'| sort | uniq`; do grep $x stat.txt | wc -l | tr -d '\n'; echo " : $x";done 
+ 
+imp \'sys/oracle11g as sysdba \' file=/home/oracle/20130906.dmp fromuser=yccw05 touser=yccwtest
+
+
+
+Pwd.212tyj
+
+
+
+#!/usr/bin/python  
+#coding=utf-8  
+#-------------------------------------------------------------------------------  
+# Name: datamapper.py  
+# Purpose: using pyodbc library to operate database  
+#  
+# Author: huamin.zhang  
+#  
+# Created: 20/04/2013  
+#-------------------------------------------------------------------------------  
+  
+import pyodbc  
+import time  
+  
+  
+class ODBC_MS:  
+    ''''' 对pyodbc库的操作进行简单封装 
+    pyodbc库的下载地址:http://code.google.com/p/pyodbc/downloads/list 
+    使用该库时，需要在Sql Server Configuration Manager里面将TCP/IP协议开启 
+    此类完成对数据库DB的连接/查询/执行操作 
+    正确的连接方式如下: 
+    cnxn = pyodbc.connect('DRIVER={SQL SERVER};SERVER=ZHANGHUAMIN\MSSQLSERVER_ZHM;DATABASE=AdventureWorks2008;UID=sa;PWD=wa1234')  
+    cnxn = pyodbc.connect(DRIVER='{SQL SERVER}',SERVER=r'ZHANGHUAMIN\MSSQLSERVER_ZHM',DATABASE='AdventureWorks2008',UID='sa',PWD='wa1234',charset="utf-8")     
+    '''  
+      
+    def __init__(self, DRIVER,SERVER, DATABASE, UID, PWD):  
+        ''''' initialization '''  
+          
+        self.DRIVER = DRIVER  
+        self.SERVER = SERVER  
+        self.DATABASE = DATABASE  
+        self.UID = UID  
+        self.PWD = PWD  
+          
+    def __GetConnect(self):  
+        ''''' Connect to the DB '''  
+          
+        if not self.DATABASE:  
+            raise(NameError,"no setting db info")  
+  
+        self.conn = pyodbc.connect(DRIVER=self.DRIVER, SERVER=self.SERVER, DATABASE=self.DATABASE, UID=self.UID, PWD=self.PWD, charset="UTF-8")  
+        #self.conn = pyodbc.connect(DRIVER=self.DRIVER, SERVER=self.SERVER, DATABASE=self.DATABASE, UID=self.UID, PWD=self.PWD)  
+        cur = self.conn.cursor()  
+        if not cur:  
+            raise(NameError,"connected failed!")  
+        else:  
+            return cur  
+          
+    def ExecQuery(self, sql):  
+        ''''' Perform one Sql statement '''  
+          
+        cur = self.__GetConnect() #建立链接并创建数据库操作指针  
+        cur.execute(sql)#通过指针来执行sql指令  
+        ret = cur.fetchall()#通过指针来获取sql指令响应数据  
+        cur.close()#游标指标关闭  
+        self.conn.close()#关闭数据库连接  
+          
+        return ret   
+      
+      
+    def ExecNoQuery(self,sql):  
+        ''''' Person one Sql statement like write data, or create table, database and so on'''  
+          
+        cur = self.__GetConnect()  
+        cur.execute(sql)  
+        self.conn.commit()#连接句柄来提交  
+        cur.close()  
+        self.conn.close()     
+  
+  
+      
+def main():  
+    ms = ODBC_MS('{SQL SERVER}', r'10.200.198.9', 'OpenMas', 'OpenMas3',  'sports@zj') 
+   
+    #ms.ExecNoQuery("drop table Customers_test")    
+   
+  
+      
+    #注意:在进行插入操作时,自增长度不能够写入  
+    
+    sql = '''''insert into COM_SmsSent_3 
+    ( 
+        MessageID, 
+        MessageContent, 
+        DestinationAddress, 
+        SendType, 
+        SendTime, 
+        IsWapPush, 
+        WapUrl, 
+        CreateTime
+    ) 
+    VALUES 
+    ( 
+        
+        1, '数据库短信测试', NULL, '15088256320', 0,datetime.datetime.now(), 0, datetime.datetime.now() 
+    ); 
+     
+    '''  
+    ms.ExecNoQuery(sql)   
+      
+if __name__ == '__main__':  
+    main()  
+
+
+
+
+cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=10.200.198.9;DATABASE=OpenMas;UID=OpenMas3;PWD=sports@zj')
+cursor = cnxn.cursor()
+cursor.execute("insert into COM_SmsSent_3  ( MessageID,  MessageContent, ExtendCode,  DestinationAddress,  SendType,       SendTime,         IsWapPush,         WapUrl,         CreateTime    )    VALUES ('%s','%s','%s','%s','%d','%s','%d','%s','%s')"  % (      '1', '200000','NULL',  '15088256320', 0,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 0,'NULL', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")     ))
+cnxn.commit()
+
+	
+
+cursor.execute("select * from COM_SmsSent_3")
+
+row=cursor.fetchone();
+
+row
+
+cnxn2 = pyodbc.connect('DRIVER={SQL Server};SERVER=10.200.198.9;DATABASE=OpenMas;UID=OpenMas3;PWD=sports@zj')
+cursor = cnxn2.cursor()
+cursor.execute("insert into COM_SmsSent_3  ( MessageID,  MessageContent, ExtendCode,  DestinationAddress,  SendType,       SendTime,         IsWapPush,         WapUrl,         CreateTime    )    VALUES ('%s','%s','%s','%s','%d','%s','%d','%s','%s')"  % (      '1', 'The temperature is a little high.','NULL',  '15088256320', 0,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 0,'NULL', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")     ))
+cnxn2.commit()
+cnxn2.close()
+
+cnxn2 = pyodbc.connect('DRIVER={SQL Server};SERVER=10.200.198.9;DATABASE=OpenMas;UID=OpenMas3;PWD=sports@zj')
+cursor = cnxn2.cursor()
+cursor.execute("insert into COM_SmsSent_3  ( MessageID,  MessageContent, ExtendCode,  DestinationAddress,  SendType,       SendTime,         IsWapPush,         WapUrl,         CreateTime    )    VALUES ('%s','%s','%s','%s','%d','%s','%d','%s','%s')"  % (      '1', '系统无异常','NULL',  '15088256320', 0,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 0,'NULL', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")     ))
+cnxn2.commit()
+cnxn2.close()

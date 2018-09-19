@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线密码生成器</title>
+    <meta name="description" content="程序生成随机密码串，支持各种字符长度与格式。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//libs.useso.com/js/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">密码生成器</h3>
+        </div>
+
+        <div class="jumbotron" id="generator">
+            <h2 class="output">{{output}}</h2>
+            <p class="tips">勾选密码包括的字符类型，并填写密码长度或者生成规则。</p>
+            <div class="checkbox-inline">
+                <label for="capital">
+                    <input v-model="filter.capital" type="checkbox" name="capital" id="capital"/>
+                    大写字母
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label for="letter">
+                    <input v-model="filter.letter" type="checkbox" name="letter" id="letter"/>
+                    小写字母
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label for="number">
+                    <input v-model="filter.number" type="checkbox" name="number" id="number"/>
+                    数字
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label for="punctuation">
+                    <input v-model="filter.punctuation" type="checkbox" name="punctuation" id="punctuation"/>
+                    标点符号
+                </label>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label class="" for="length">长度</label>
+                    <input v-model="filter.length" type="number" class="form-control" id="format" placeholder="默认为8">
+                </div>
+                <div class="form-group">
+                    <label class="" for="format">规则</label>
+                    <input v-model="format" type="text" class="form-control" id="format" placeholder="">
+                </div>
+                <div class="alert alert-info" role="alert">
+                    *如果填写了规则，则长度和字符勾选设置均失效，以规则为准。
+                </div>
+            </div>
+            <p><a v-on="click: updateOutput" class="btn btn-lg btn-success" href="#" role="button">召唤新密码</a></p>
+        </div>
+
+        <div class="row marketing">
+            <div class="">
+                <h4>如何设定生成规则</h4>
+                <p>分别用c,l,n,p代表大字字母、小写字母、数字、标点符号，任意组合你想要的密码格式。比如“lcccnplcpllc”可能生成“aBCD4,jK!dsS”。</p>
+
+                <h4>网站会偷窥密码吗</h4>
+                <p>密码生成程序运行于用户浏览器中。生成的密码不会被发送到任何服务器。*除非你的浏览器被人安装了木马病毒！</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy;  <a href="http://www.willizm.cn">Willizm</a> 2015</p>
+        </footer>
+
+    </div> <!-- /container -->
+    <script src="vendor/vue.min.js"></script>
+    <script src="bundle.js"></script>
+</body>
+</html>
